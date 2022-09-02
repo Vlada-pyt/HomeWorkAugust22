@@ -14,7 +14,7 @@ def users():
         user_data = json.loads(request.data)
         new_user = models.User(**user_data)
 
-        db.sesion.add(new_user)
+        db.session.add(new_user)
         db.session.commit()
 
         result = []
@@ -62,7 +62,7 @@ def offers():
         offer_data = json.loads(request.data)
         new_offer = models.Offer(**offer_data)
 
-        db.sesion.add(new_offer)
+        db.session.add(new_offer)
         db.session.commit()
 
         result = []
@@ -107,7 +107,7 @@ def orders():
         order_data = json.loads(request.data)
         new_order = models.Order(**order_data)
 
-        db.sesion.add(new_order)
+        db.session.add(new_order)
         db.session.commit()
 
         result = []
