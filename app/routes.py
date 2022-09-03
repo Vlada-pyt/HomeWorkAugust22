@@ -29,9 +29,10 @@ def user_function(uid):
         user = models.User.query.get(uid)
         return jsonify(user.to_dict()), 200
     if request.method == "PUT":
-        user_data = request.json()
+        user_data = request.json
         user = models.User.query.get(uid)
         user.first_name = user_data["first_name"]
+        user.last_name = user_data["last_name"]
         user.age = user_data["age"]
         user.email = user_data["email"]
         user.role = user_data["role"]
@@ -77,7 +78,7 @@ def offer_function(uid):
         offer = models.Offer.query.get(uid)
         return jsonify(offer.to_dict()), 200
     if request.method == "PUT":
-        offer_data = request.json()
+        offer_data = request.json
         offer = models.Offer.query.get(uid)
         offer.order_id = offer_data["order_id"]
         offer.executor_id = offer_data["executor_id"]
@@ -122,9 +123,9 @@ def order_function(uid):
         order = models.Order.query.get(uid)
         return jsonify(order.to_dict()), 200
     if request.method == "PUT":
-        order_data = request.json()
+        order_data = request.json
         order = models.Order.query.get(uid)
-        order.first_name = order_data["name"]
+        order.name = order_data["name"]
         order.description = order_data["description"]
         order.start_date = order_data["start_date"]
         order.end_date = order_data["end_date"]
